@@ -204,3 +204,92 @@ Retrieve all appointments associated with a specific user ID. This endpoint requ
     }
 ]
 ```
+
+### 3. Create Appointment
+
+- **URL:** `/wp-json/custom/v1/appointments`
+- **Method:** `POST`
+- **Auth Required:** Yes (User must be logged in)
+- **Content-Type:** `application/json`
+
+#### Request Body
+
+- `date` (string, format: `YYYY-MM-DD`) - The date of the appointment.
+- `time` (string, format: `HH:MM:SS`) - The time of the appointment.
+- `name` (string) - The name of the person making the appointment.
+- `email` (string) - The email address of the person making the appointment.
+- `phone` (string) - The phone number of the person making the appointment.
+
+#### Example Request
+
+```http
+POST /wp-json/custom/v1/appointments HTTP/1.1
+Host: example.com
+Authorization: Bearer YOUR_JWT_TOKEN
+Content-Type: application/json
+
+{
+  "date": "2024-08-15",
+  "time": "14:30:00",
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "phone": "+1234567890"
+}
+```
+### 4. Update Appointment
+
+- **URL:** `/wp-json/custom/v1/appointments/(?P<id>\d+)`
+- **Method:** `POST`
+- **Auth Required:** Yes (User must be logged in)
+- **Content-Type:** `application/json`
+
+#### Request Parameters
+
+- `id` (integer) - The ID of the appointment to be updated.
+
+#### Request Body
+
+- `date` (string, format: `YYYY-MM-DD`) - The new date of the appointment.
+- `time` (string, format: `HH:MM:SS`) - The new time of the appointment.
+- `name` (string) - The new name of the person making the appointment.
+- `email` (string) - The new email address of the person making the appointment.
+- `phone` (string) - The new phone number of the person making the appointment.
+
+#### Example Request
+
+```http
+POST /wp-json/custom/v1/appointments/123 HTTP/1.1
+Host: example.com
+Authorization: Bearer YOUR_JWT_TOKEN
+Content-Type: application/json
+
+{
+  "date": "2024-08-20",
+  "time": "15:00:00",
+  "name": "Jane Doe",
+  "email": "jane.doe@example.com",
+  "phone": "+0987654321"
+}
+```
+### 5. Delete Appointment
+
+- **URL:** `/wp-json/custom/v1/appointments/(?P<id>\d+)`
+- **Method:** `DELETE`
+- **Auth Required:** Yes (User must be logged in)
+- **Content-Type:** `application/json`
+
+#### Request Parameters
+
+- `id` (integer) - The ID of the appointment to be deleted.
+
+#### Example Request
+
+```http
+DELETE /wp-json/custom/v1/appointments/123 HTTP/1.1
+Host: example.com
+Authorization: Bearer YOUR_JWT_TOKEN
+Content-Type: application/json
+```
+
+
+
