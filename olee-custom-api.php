@@ -124,7 +124,7 @@ if (file_exists($slider_api_file)) {
 
 }
 
-//  Slider ফাইল অন্তর্ভুক্ত করা হচ্ছে, যদি ফাইল থাকে তাহলে
+//  Jwt ফাইল অন্তর্ভুক্ত করা হচ্ছে, যদি ফাইল থাকে তাহলে
 $jwt_file = plugin_dir_path(__FILE__) . 'includes/jwt-authentication-for-wp-rest-api/jwt-auth.php';
 
 if (file_exists($jwt_file)) {
@@ -132,6 +132,13 @@ if (file_exists($jwt_file)) {
 
 }
 
+//  Job Circuler ফাইল অন্তর্ভুক্ত করা হচ্ছে, যদি ফাইল থাকে তাহলে
+$job_circuler_api_file = plugin_dir_path(__FILE__) . 'includes/Job-Circular/api/job-circular-api.php';
+
+if (file_exists($job_circuler_api_file)) {
+    include_once $job_circuler_api_file;
+
+}
 
 
 function register_custom_post_count_endpoint() {
